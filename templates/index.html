@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Database</title>
+</head>
+<body>
+    <h1>Employee Database</h1>
+    <a href="/add">Add Employee</a>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>SSN</th>
+            <th>Department</th>
+            <th>Age</th>
+            <th>Salary</th>
+            <th>Actions</th>
+        </tr>
+        {% for employee in employees %}
+        <tr>
+            <td>{{ employee.id }}</td>
+            <td>{{ employee.name }}</td>
+            <td>{{ employee.ssn }}</td>
+            <td>{{ employee.department }}</td>
+            <td>{{ employee.age }}</td>
+            <td>{{ employee.salary }}</td>
+            <td>
+                <a href="/update/{{ employee.id }}">Edit</a>
+                <a href="/delete/{{ employee.id }}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
